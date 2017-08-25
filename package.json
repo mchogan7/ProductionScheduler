@@ -3,13 +3,24 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
+    "express-session": "^1.15.5",
+    "express-static-gzip": "^0.3.0",
     "moment": "^2.18.1",
     "node-mysql": "^0.4.2",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
     "react": "^15.6.1",
+    "react-custom-scrollbars": "^4.1.2",
     "react-dom": "^15.6.1",
-    "react-scripts": "1.0.11"
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.0.11",
+    "react-transition-group": "^2.2.0",
+    "redux": "^3.7.2",
+    "websocket": "^1.0.24"
   },
   "scripts": {
     "start": "react-scripts start",
