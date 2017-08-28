@@ -4,7 +4,7 @@ const app = express()
 const port = process.env.PORT || 4000;
 const mysql      = require('mysql');
 const connection = mysql.createConnection(dbInfo);
-var io = require('socket.io')(http);
+var io = require('socket.io')(app);
 
 
 
