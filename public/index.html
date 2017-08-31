@@ -35,6 +35,26 @@
 
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
+
     -->
+        <h1 id="socketio"> not connected </h1>
+    <div id="display"> </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io();
+      socket.on('connect', function() {
+        document.getElementById("socketio").innerHTML = "socket connected";
+      });
+      socket.on('showrows', function(rows) {
+        var html='';
+        for (var i=0; i<rows.length; i++) {
+          html += rows[i].userName + ' ' + rows[i].password + '<br>';
+        }  
+        document.getElementById("display").innerHTML = html;
+        console.log(rows);
+      });
+    </script>
   </body>
 </html>
+
+
