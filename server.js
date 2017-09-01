@@ -13,8 +13,8 @@ app.get("/", function(req, res) {
     res.sendFile(__dirname + "/public/index.html");
 });
 
-http.listen(3000, function(){
-  console.log('listening on *:3000');
+http.listen(3100, function(){
+  console.log('listening on *:3100');
 });
 
 io.on('connection', function (socket) {
@@ -24,7 +24,7 @@ io.on('connection', function (socket) {
 connection.query('SELECT * FROM users;', function (error, results, fields) {
   if (error) throw error;
   console.log(results);
-      socket.emit('showrows', results);
+      socket.emit('getInitial', results);
     })
 
  socket.on('update', function(update){
@@ -33,24 +33,20 @@ connection.query('SELECT * FROM users;', function (error, results, fields) {
 
   if (error) throw error;
   // ... 
+}).on('end', function() {
+    updateAllClients()
+  });
+
 });
 
+});
+
+function updateAllClients(){
 connection.query('SELECT * FROM users;', function (error, results, fields) {
   if (error) throw error;
   console.log(results);
       io.local.emit('showrows', results);
     })
-
-
-  });
-
-
-
-
-});
-
-function update(){
-
 }
 
 
