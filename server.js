@@ -26,7 +26,34 @@ connection.query('SELECT * FROM users;', function (error, results, fields) {
   console.log(results);
       socket.emit('showrows', results);
     })
+
+ socket.on('update', function(update){
+    console.log(update);
+    connection.query('UPDATE users SET password = ? WHERE UserID = 1', [update], function (error, results, fields) {
+
+  if (error) throw error;
+  // ... 
 });
+
+connection.query('SELECT * FROM users;', function (error, results, fields) {
+  if (error) throw error;
+  console.log(results);
+      io.local.emit('showrows', results);
+    })
+
+
+  });
+
+
+
+
+});
+
+function update(){
+
+}
+
+
 
 
  

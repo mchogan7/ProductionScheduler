@@ -53,6 +53,12 @@
         document.getElementById("display").innerHTML = html;
         console.log(rows);
       });
+
+       document.getElementById('socketio').onclick = function(){
+        let random = Math.random()
+        console.log(random)
+        socket.emit('update', random);
+    };
     </script>
   </body>
 </html>
